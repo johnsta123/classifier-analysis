@@ -9,8 +9,12 @@ The bank wants to increase the number of customers who subscribe to a term depos
 ## Dataset
 The data is from a Portuguese banking institution and is a collection of the results of multiple marketing campaigns.
 
+## Findings:
 ## Data
 -duration (call length) is only known after the call, so the model should be built without it to be usable for deciding whom to call.
+-Missing data is stored as the text "unknown" in six categorical columns: default, education, housing, loan, job and marital
+-default is almost useless. Only 3 customers answer “yes”, and 21% are unknown, so I dropped it.
+-Duplicates: 12 rows are exact duplicates. They have little effect but removed that.
 
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
