@@ -1,14 +1,16 @@
 # classifier-analysis
 Classification models comparison
-## Overview - Will a customer accept the coupon?
-Assignment Notebook https://github.com/johnsta123/coupon-analysis/blob/main/prompt.ipynb
-
+## Overview
 The goal is to compare the performance of the classifiers (k-nearest neighbors, logistic regression, decision trees, and support vector machines).
+Assignment Notebook https://github.com/johnsta123/classifier-analysis/blob/main/prompt_III.ipynb
 
+## Business Objective
+The bank wants to increase the number of customers who subscribe to a term deposit while making fewer, better-targeted phone calls. The goal is to predict which customers are likely to say “yes” before calling them, so the contact center can focus its effort on the likeliest buyers, cut wasted calls, and lower campaign costs.
 ## Dataset
-**Target variable**: Y — binary, 1 if the driver accepted the coupon, 0 if rejected.
-**Coupon types**: coupon column — Bar, Coffee House, Restaurant(<20), Restaurant(20-50), Carry out & Take away.
-**Contextual features**: time, weather, temperature, passanger, destination, direction_same, toCoupon_GEQ5min/15min/25min.
-**Behavioral features**: Bar, CoffeeHouse, RestaurantLessThan20, Restaurant20To50 — self-reported frequency of visiting each venue type.
+The data is from a Portuguese banking institution and is a collection of the results of multiple marketing campaigns.
+
+## Data
+-duration (call length) is only known after the call, so the model should be built without it to be usable for deciding whom to call.
+
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
