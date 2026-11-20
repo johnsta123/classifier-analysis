@@ -33,5 +33,9 @@ value 999 means “never contacted”. It is not a real number of days.
 Recommended fix: 
 pdays (days since the customer was last contacted in a previous campaign) uses 999 to mean “never contacted” for 96.3% of rows. Rreplace 999 with 0 and added a binary flag pdays_never so the model can distinguish customers who were never contacted from those contacted recently.
 
+campaign_id field: As a tool for analysis and validation add a new field campaign_id, not for the model.
+
+## Final Takeaways:
+
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
