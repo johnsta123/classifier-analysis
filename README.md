@@ -2,6 +2,7 @@
 Classification models comparison
 ## Overview
 The goal is to compare the performance of the classifiers (k-nearest neighbors, logistic regression, decision trees, and support vector machines).
+
 Assignment Notebook https://github.com/johnsta123/classifier-analysis/blob/main/prompt_III.ipynb
 
 ## Business Objective
@@ -12,9 +13,23 @@ The data is from a Portuguese banking institution and is a collection of the res
 ## Findings:
 ## Data
 -duration (call length) is only known after the call, so the model should be built without it to be usable for deciding whom to call.
+
 -Missing data is stored as the text "unknown" in six categorical columns: default, education, housing, loan, job and marital
+
 -default is almost useless. Only 3 customers answer “yes”, and 21% are unknown, so I dropped it.
+
+-Column names containing a dot (.): replaced the dot with an underscore (_).
+-Rename column y: the target column y is renamed to subscribed (a more readable name).
+
 -Duplicates: 12 rows are exact duplicates. They have little effect but removed that.
+-column name with . : replaced the column names with . as _
+-
+
+## Recommendations:
+column pdays:
+value 999 means “never contacted”. It is not a real number of days.
+Recommended fix: 
+pdays (days since the customer was last contacted in a previous campaign) uses 999 to mean “never contacted” for 96.3% of rows. Rreplace 999 with 0 and added a binary flag pdays_never so the model can distinguish customers who were never contacted from those contacted recently.
 
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
