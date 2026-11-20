@@ -24,8 +24,6 @@ The data is from a Portuguese banking institution and is a collection of the res
 
 -Duplicates: 12 rows are exact duplicates. They have little effect but removed that.
 
--column name with . : replaced the column names with . as _
-
 ## Model Scenarios and Final Takeaways:
 I used these four models for two use cases.
 
