@@ -60,6 +60,3 @@ A gains and lift chart plus an expected-profit threshold calculator, where you e
 
 A gradient boosting model with calibration and a feature-importance chart.
 
-
-**Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
-
