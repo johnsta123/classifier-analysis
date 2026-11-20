@@ -36,6 +36,14 @@ pdays (days since the customer was last contacted in a previous campaign) uses 9
 campaign_id field: As a tool for analysis and validation add a new field campaign_id, not for the model.
 
 ## Final Takeaways:
+Where the model stands:
+| Version | Best test ROC AUC | What it means |
+| --- | --- | --- |
+|7 bank-information features, default settings | about 0.65, no better than baseline accuracy | Very weak signal |
+| 7 features, engineered and tuned | about 0.66 | Small gain |
+| All features except duration,pdays | about 0.80 | Useful: precision about 0.46 vs an 11% base rate |
+
+Decision tree and logistic regression are tied at the top, KNN is close, and the SVM is slow and weak.
 
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
