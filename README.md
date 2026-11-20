@@ -19,11 +19,13 @@ The data is from a Portuguese banking institution and is a collection of the res
 -default is almost useless. Only 3 customers answer “yes”, and 21% are unknown, so I dropped it.
 
 -Column names containing a dot (.): replaced the dot with an underscore (_).
+
 -Rename column y: the target column y is renamed to subscribed (a more readable name).
 
 -Duplicates: 12 rows are exact duplicates. They have little effect but removed that.
+
 -column name with . : replaced the column names with . as _
--
+
 
 ## Recommendations:
 column pdays:
