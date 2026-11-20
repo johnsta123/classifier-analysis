@@ -26,8 +26,24 @@ The data is from a Portuguese banking institution and is a collection of the res
 
 -column name with . : replaced the column names with . as _
 
+## Model Scenarios and Final Takeaways:
+I used these four models for two use cases.
 
-## Recommendations:
+Use case 1: Using only the bank client data features (7).
+
+Use case 2: Using all features except duration, pdays and default.
+
+**Where the model stands:**
+| Version | Best test ROC AUC | What it means |
+| --- | --- | --- |
+|7 bank-information features, default settings | about 0.65, no better than baseline accuracy | Very weak signal |
+|7 features, engineered and tuned | about 0.66 | Small gain |
+|All features except duration,pdays | about 0.80 | Useful: precision about 0.46 vs an 11% base rate |
+
+Decision tree and logistic regression are tied at the top, KNN is close, and the SVM is slow and weak.
+
+
+## Next Steps and Recommendations:
 column pdays:
 value 999 means “never contacted”. It is not a real number of days.
 Recommended fix: 
@@ -35,15 +51,17 @@ pdays (days since the customer was last contacted in a previous campaign) uses 9
 
 campaign_id field: As a tool for analysis and validation add a new field campaign_id, not for the model.
 
-## Final Takeaways:
-Where the model stands:
-| Version | Best test ROC AUC | What it means |
-| --- | --- | --- |
-|7 bank-information features, default settings | about 0.65, no better than baseline accuracy | Very weak signal |
-| 7 features, engineered and tuned | about 0.66 | Small gain |
-| All features except duration,pdays | about 0.80 | Useful: precision about 0.46 vs an 11% base rate |
+Try gradient boosting and a small tuning budget, tune with RandomizedSearchCV.
+Reduce collinearity among the macro features (euribor3m, emp_var_rate, nr_employed). Keep one or combine them, especially to interpret coefficients.
 
-Decision tree and logistic regression are tied at the top, KNN is close, and the SVM is slow and weak.
+**what can do next:**
+
+A time-based validation comparison, to see how much the scores drop.
+
+A gains and lift chart plus an expected-profit threshold calculator, where you enter the cost of a call and the value of a subscription.
+
+A gradient boosting model with calibration and a feature-importance chart.
+
 
 **Demographic features**: age, maritalStatus, income, occupation, education, gender, has_children.
 
